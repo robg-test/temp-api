@@ -29,6 +29,14 @@ func initDB() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	_, err = db.Exec(`CREATE TABLE IF NOT EXISTS items (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    value TEXT NOT NULL
+  )`)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 type Item struct {
