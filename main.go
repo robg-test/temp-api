@@ -17,7 +17,7 @@ import (
 // @title My API
 // @version 1.0
 // @description This is a sample server.
-// @host localhost:8080
+// @host api.bob-productions.dev
 // @BasePath /
 
 var db *sql.DB
@@ -29,11 +29,12 @@ func initDB() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Println("Spinning up the database...")
 	_, err = db.Exec(`CREATE TABLE IF NOT EXISTS items (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    value TEXT NOT NULL
-  )`)
+	   id INTEGER PRIMARY KEY AUTOINCREMENT,
+	   name TEXT NOT NULL,
+	   value TEXT NOT NULL
+	 )`)
 	if err != nil {
 		log.Fatal(err)
 	}
