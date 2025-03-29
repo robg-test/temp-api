@@ -1,0 +1,14 @@
+# .air.toml
+
+[build]
+bin = "main"              # Name of the binary
+cmd = "go build -o main"  # Command to build the project
+main = "main.go"          # Entry point of your application
+watch_cmd = "go run main" # Command to run the application after build
+
+[log]
+level = "debug"
+
+[watch]
+includes = ["."]
+excludes = ["tmp", "vendor"]
