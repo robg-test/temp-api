@@ -28,6 +28,17 @@ const docTemplate = `{
                     "items"
                 ],
                 "summary": "Create an item",
+                "parameters": [
+                    {
+                        "description": "Item to create",
+                        "name": "item",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/main.ItemRequest"
+                        }
+                    }
+                ],
                 "responses": {
                     "201": {
                         "description": "Created",
@@ -103,6 +114,20 @@ const docTemplate = `{
     },
     "definitions": {
         "main.Item": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "main.ItemRequest": {
             "type": "object",
             "properties": {
                 "name": {

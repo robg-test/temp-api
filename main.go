@@ -41,7 +41,13 @@ func initDB() {
 }
 
 type Item struct {
-	ID    int    `json:"id" swaggerignore:"true"`
+	ID    int    `json:"id"`
+	Name  string `json:"name"`
+	Value string `json:"value"`
+}
+
+// ItemRequest represents the request body for creating an item
+type ItemRequest struct {
 	Name  string `json:"name"`
 	Value string `json:"value"`
 }
@@ -78,6 +84,7 @@ func getItemByID(w http.ResponseWriter, r *http.Request) {
 // @Accept json
 // @Produce json
 // @Success 201 {object} Item
+// @Param item body ItemRequest true "Item to create"
 // @Router /items [post]
 func createItem(w http.ResponseWriter, r *http.Request) {
 	var item Item

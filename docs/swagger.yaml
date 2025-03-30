@@ -2,6 +2,15 @@ basePath: /
 definitions:
   main.Item:
     properties:
+      id:
+        type: integer
+      name:
+        type: string
+      value:
+        type: string
+    type: object
+  main.ItemRequest:
+    properties:
       name:
         type: string
       value:
@@ -19,6 +28,13 @@ paths:
       consumes:
       - application/json
       description: Create a new item
+      parameters:
+      - description: Item to create
+        in: body
+        name: item
+        required: true
+        schema:
+          $ref: '#/definitions/main.ItemRequest'
       produces:
       - application/json
       responses:
